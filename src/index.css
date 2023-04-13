@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    //font-family: Proxima Nova, system-ui, sans-serif;
+    /* scroll-behavior: smooth; */
+  }
+  h1 {
+    font-weight: bolder;
+    font-size: 2rem;
+  }
+
+  /* Scroll bar custom */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: black;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    @apply w-[0.5rem];
+  }
+
+  *::-webkit-scrollbar-track {
+    @apply bg-white;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply bg-primary;
+  }
+  /*End scrollbar custom*/
+
+  /*Text highlight selection*/
+  ::selection {
+    @apply !bg-primary !text-white;
+  }
+}
+
+@layer components {
+  .container {
+    @apply w-[90%] sm:w-[65%] md:w-[44rem] lg:w-[46rem] xl:w-[65rem];
+  }
+  .activeStyle {
+    @apply text-primary dark:text-white;
+  }
+  .sizePicker {
+    @apply border h-[2rem] w-[4rem] flex justify-center items-center cursor-pointer;
+  }
+  .activeSizePicker {
+    @apply bg-primary text-white;
+  }
+  .text_threedot_2line {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .fa_footer {
+    font-size: 2rem;
+    color: #fff;
+    border-radius: 1rem;
+    width: 1.7rem;
+  }
+  .fa_footer:hover {
+    background: #fff;
+  }
+  .backgroundInstagram {
+    background: #f09433;
+    background: linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+  }
+}
+
+/* Override react hamburger */
+.hamburger-react {
+  @apply dark:text-white;
+}
+/* End Override react hamburger*/
+
+
+/* OverRide Antd */
+
+/* Pagination */
+.ant-pagination-item a,
+.ant-pagination-prev button,
+.ant-pagination-next button {
+  @apply dark:!text-white;
+}
+.ant-pagination-item a:hover,
+.ant-pagination-next button:hover,
+.ant-pagination-prev button:hover {
+  @apply dark:!text-primary;
+}
+.ant-pagination-item-active a {
+  @apply dark:!text-black;
+}
+
+/* Search */
+.ant-input-affix-wrapper,
+.ant-input-affix-wrapper input {
+  @apply dark:bg-slate-800;
+}
+.ant-input-affix-wrapper input {
+  @apply dark:text-white dark:placeholder-slate-300;
+}
+.ant-input-search-button .anticon-search {
+  @apply dark:text-white;
+}
+.anticon-close-circle {
+  @apply dark:text-white;
+}
+
+/* Dropdown */
+.ant-dropdown-menu-item {
+  @apply hover:!bg-primary hover:!text-white;
+}
+
+/* Affix */
+.ant-affix {
+  @apply !h-[unset];
+}
