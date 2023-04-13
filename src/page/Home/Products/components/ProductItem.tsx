@@ -5,7 +5,7 @@ import { IAllProductData } from "../../../../interface";
 // image
 import tiny from "../../../../assets/image/tiny.jpg";
 import logo from "../../../../assets/logo.png";
-import ProgressiveImage from "react-progressive-image";
+import ProgressiveImage from "react-progressive-graceful-image";
 
 interface IProps {
   item: IAllProductData;
@@ -42,7 +42,7 @@ const ProductItem = ({ item }: IProps) => {
             alt="lỗi rùi ahuhu"
           /> */}
           <ProgressiveImage src={item.image || logo} placeholder={tiny}>
-            {(src: string, loading: boolean) => (
+            {(src: string, loading) => (
               <img
                 src={src}
                 className={`group-hover:scale-[105%] object-contain ease-in-out duration-300 ${

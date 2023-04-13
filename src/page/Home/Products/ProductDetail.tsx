@@ -13,7 +13,7 @@ import QuantitySelection from "../../../components/QuantitySelection";
 // image
 import tiny from "../../../assets/image/tiny.jpg";
 import logo from "../../../assets/logo.png";
-import ProgressiveImage from "react-progressive-image";
+import ProgressiveImage from "react-progressive-graceful-image";
 
 const ProductDetail = () => {
   console.log("Product Detail Render");
@@ -150,7 +150,21 @@ const ProductDetail = () => {
               src={productData?.image || logo}
               placeholder={tiny}
             >
-              {(src: string, loading: boolean) => (
+              {(src: string, loading) => (
+                <img
+                  src={src}
+                  className={`group-hover:scale-[105%] object-contain ease-in-out duration-300 ${
+                    loading ? "blur-md" : "blur-none"
+                  }`}
+                  alt="lỗi rùi ahuhu"
+                />
+              )}
+            </ProgressiveImage>
+            {/* <ProgressiveImage
+              src={productData?.image || logo}
+              placeholder={tiny}
+            >
+              {(src: string, loading) => (
                 <Image
                   src={src}
                   className={`transition-all duration-1000 ${
@@ -158,7 +172,7 @@ const ProductDetail = () => {
                   }`}
                 />
               )}
-            </ProgressiveImage>
+            </ProgressiveImage> */}
           </div>
           <div className="w-full md:basis-[45%] xl:basis-[60%] md:pt-[3rem] dark:pt-[2rem]">
             {/* Title */}
